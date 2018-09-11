@@ -1,0 +1,42 @@
+.main-container {
+    font-family: 'Pacifico', cursive;
+    font-weight: bold;
+    color: lightseagreen;
+    background-color: black;
+    text-align: center;
+    border: 2px solid white;
+    z-index: 99;
+    width: 75%;
+    margin: 0 auto;
+}
+
+.jumbotron {
+    z-index: 1;
+    background-color: black;
+    border-bottom: 2px solid white;
+    background-image: url("https://www.verbicidemagazine.com/wp-content/uploads/2012/08/nirvana.jpg");
+}
+
+body {
+    background-color: gray;
+
+}
+     
+.panel {
+    height: 100px;
+    border: 2px solid black;
+    width: 75%;
+    margin: 0 auto;
+    color: black;
+    background-color: lightseagreen;
+    font-family: "Pacifico", cursive;
+}
+
+.panel-heading {
+    text-align: center;
+}
+
+.panel-body {
+    text-align: center;
+    margin: 0 auto;
+}

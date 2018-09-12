@@ -1,3 +1,6 @@
+// GLOBAL FUNCTIONS
+// *-------------------------------------------------------------------------------------------------*
+
 var wordOptions = ["nirvana", "pearljam", "bush", "audioslave"];
 var selectedWord = "";
 var lettersInWord = [];
@@ -8,6 +11,12 @@ var wrongLetters = [];
 var winCount = 0;
 var lossCount = 0;
 var guessesLeft = 10;
+
+
+
+// START GAME FUNCTION
+// *-------------------------------------------------------------------------------------------------*
+
 
 function startGame() {
     selectedWord = wordOptions[Math.floor(Math.random() * wordOptions.length)];
@@ -33,6 +42,12 @@ function startGame() {
     console.log(blanksAndSuccesses);
 }
 
+
+
+// CHECK LETTERS ENTERED BY USER AGAINST RANDOMLY GENERATED WORD
+// *-------------------------------------------------------------------------------------------------*
+
+
 function checkLetters(letter) {
 
     var isLetterInWord = false;
@@ -50,20 +65,32 @@ function checkLetters(letter) {
             if (selectedWord[i] == letter) {
                 blanksAndSuccesses[i] = letter;
                 document.getElementById("wordToGuess").innerHTML = blanksAndSuccesses.join("");
+                if (document.getElementById("wordToGuess").innerHTML == selectedWord){
+                    alert("You won!");
+                    //incriment win counter
+                    winCount ++
+                    document.getElementById("wincounter").innerHTML = winCount;
+                    startGame();
+    
+
+                }
             }
         }
     }
 
     else {
-        if (guessesLeft == 0){
+        if (guessesLeft == 0) {
             alert("Game over");
+            lossCount ++
+            document.getElementById("losscounter").innerHTML = lossCount;
+            startGame();
         }
         else {
             wrongLetters.push(letter);
             guessesLeft--;
         }
 
-       
+
     }
 
 
@@ -75,12 +102,20 @@ function checkLetters(letter) {
 }
 
 
+// FUNCTION FOR COMPLETION OF A ROUND
+// *-------------------------------------------------------------------------------------------------*
+
+
 function roundComplete() {
     console.log("Win Count: " + winCount + " | Loss Count: " + lossCount + " | Guesses Left" + guessesLeft);
     var guessesleft = document.getElementById("guessesleft");
     guessesleft.innerHTML = guessesLeft;
 }
 
+
+
+// GAME OPERATION
+// *-------------------------------------------------------------------------------------------------*
 
 
 startGame();
